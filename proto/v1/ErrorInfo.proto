@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.navercorp.pinpoint.grpc.trace";
+option java_outer_classname = "ErrorInfoProto";
+option go_package = "/v1";
+
+package v1;
+
+message PErrorInfo {
+  int32 category = 1;
+  PErrorContent content = 2;
+}
+
+message PErrorContent {
+  oneof field {
+    string stringValue = 1;
+    int32 intValue = 2;
+  }
+}

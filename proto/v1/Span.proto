@@ -1,6 +1,7 @@
 syntax = "proto3";
 
 import "v1/Annotation.proto";
+import "v1/ErrorInfo.proto";
 
 
 option java_multiple_files = true;
@@ -45,6 +46,8 @@ message PSpan {
 
     int32 applicationServiceType = 15;
     int32 loggingTransactionInfo = 16;
+
+    repeated PErrorInfo errorInfo = 17;
 }
 
 message PTransactionId {
@@ -89,6 +92,8 @@ message PSpanEvent {
 
     PNextEvent nextEvent = 12;
     int32 asyncEvent = 13;
+
+    repeated PErrorInfo errorInfo = 14;
 }
 
 message PNextEvent {
